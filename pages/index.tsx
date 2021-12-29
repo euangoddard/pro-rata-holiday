@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import type { Countries, Event, RawEvent, Sessions } from "./models";
+import type { Countries, Event, RawEvent, Sessions } from "../lib/models";
 import { ChangeEvent, useEffect, useState } from "react";
 import DayPicker from "../components/DayPicker";
 import HolidayVisualization from "../components/HolidayVisualization";
-import { range } from "../utils/array";
+import { range } from "../lib/utils/array";
 
 const getDivisionLabel = (division: string): string => {
   return division

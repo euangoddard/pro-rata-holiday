@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { formatNumber } from "../utils/number";
-import { Event, Sessions } from "../pages/models";
+import { formatNumber } from "../lib/utils/number";
+import { Event, Sessions } from "../lib/models";
 import styles from "./HolidayVisualization.module.css";
 import classNames from "classnames";
 

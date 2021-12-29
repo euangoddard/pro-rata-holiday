@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, Fragment, useEffect, useState } from "react";
 import styles from "./DayPicker.module.css";
-import { Session, Sessions } from "../pages/models";
+import { Session, Sessions } from "../lib/models";
 
 interface AvailableDay {
   label: string;
