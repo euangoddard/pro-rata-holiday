@@ -4,7 +4,7 @@ export const range = (start: number, end?: number): readonly number[] => {
     start = 0;
   }
   if (end - start) {
-    return [...Array(end - start).keys()].map((i) => i + start);
+    return Array.from(Array(end - start), (_, i) => i + start);
   } else {
     return [];
   }
