@@ -1,0 +1,56 @@
+.days {
+  display: grid;
+  grid-template-columns: repeat(5, var(--day-size));
+  grid-template-rows: repeat(50, var(--day-size));
+  gap: 4px;
+  margin: 16px 0;
+}
+
+.day {
+  width: var(--day-size);
+  height: var(--day-size);
+}
+
+.annualLeave {
+  background: var(--color-annual-leave);
+}
+
+.partialAnnualLeave {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-annual-leave),
+    var(--color-annual-leave) 5px,
+    var(--color-partial-annual-leave) 5px,
+    var(--color-partial-annual-leave) 10px
+  );
+}
+
+.publicHolidayInLieu {
+  background: var(--color-public-holiday-in-lieu);
+}
+
+.partialPublicHolidayInLieu {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-public-holiday-in-lieu),
+    var(--color-public-holiday-in-lieu) 5px,
+    var(--color-partial-public-holiday-in-lieu) 5px,
+    var(--color-partial-public-holiday-in-lieu) 10px
+  );
+}
+
+.publicHoliday {
+  background: var(--color-public-holiday);
+}
+
+.annualLeaveText {
+  color: var(--color-annual-leave);
+}
+
+.publicHolidayText {
+  color: var(--color-public-holiday);
+}
+
+.publicHolidayInLieuText {
+  color: var(--color-public-holiday-in-lieu);
+}

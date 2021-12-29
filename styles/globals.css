@@ -1,3 +1,13 @@
+:root {
+  --day-size: 24px;
+  --color-annual-leave: #43a047;
+  --color-partial-annual-leave: #c8e6c9;
+  --color-public-holiday-in-lieu: #512da8;
+  --color-partial-public-holiday-in-lieu: #d1c4e9;
+  --color-public-holiday: #f57c00;
+  --color-partial-enforced-leave: #ffecb3;
+}
+
 html,
 body {
   padding: 0;
