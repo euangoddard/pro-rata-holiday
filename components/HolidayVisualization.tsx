@@ -214,6 +214,20 @@ const HolidayVisualization: FC<HolidayVisualizationProps> = ({
           </div>
         ))}
       </figure>
+      <h4>Key</h4>
+      <dl className={styles.key}>
+        <dt className={styles.annualLeave}>&nbsp;</dt>
+        <dd>Annual leave</dd>
+        <dt className={styles.partialAnnualLeave}>&nbsp;</dt>
+        <dd>Annual leave (part day)</dd>
+        <dt className={styles.publicHoliday}>&nbsp;</dt>
+        <dd>Public holiday</dd>
+        <dt className={styles.publicHolidayInLieu}>&nbsp;</dt>
+        <dd>Public holiday in lieu</dd>
+        <dt className={styles.partialPublicHolidayInLieu}>&nbsp;</dt>
+        <dd>Public holiday in lieu (part day)</dd>
+      </dl>
+      <p>Each block represents a day</p>
     </article>
   );
 };

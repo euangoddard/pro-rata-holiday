@@ -1,7 +1,6 @@
 .days {
   display: grid;
   grid-template-columns: repeat(5, var(--day-size));
-  grid-template-rows: repeat(50, var(--day-size));
   gap: 4px;
   margin: 16px 0;
 }
@@ -53,4 +52,18 @@
 
 .publicHolidayInLieuText {
   color: var(--color-public-holiday-in-lieu);
+}
+
+.key {
+  display: grid;
+  grid-template-columns: var(--day-size) 1fr;
+  gap: 4px;
+  margin: 16px 0;
+}
+
+.key dd {
+  margin-left: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: var(--day-size);
 }
