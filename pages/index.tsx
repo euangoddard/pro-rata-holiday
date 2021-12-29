@@ -38,11 +38,11 @@ const Form: NextPage<{
   });
 
   const [selectedDivision, setSelectedDivision] = useState(
-    divisions[0].division
+    divisions[0].division,
   );
 
   const [divisionHolidays, setDivisionHolidays] = useState<readonly Event[]>(
-    []
+    [],
   );
 
   const [year, setYear] = useState(new Date().getFullYear());
@@ -53,10 +53,10 @@ const Form: NextPage<{
 
   useEffect(() => {
     const relevantCountry = countries.find(
-      ({ division }) => division === selectedDivision
+      ({ division }) => division === selectedDivision,
     );
     const relevantHolidays = (relevantCountry?.events ?? []).filter(
-      ({ date }) => date.getFullYear() === year
+      ({ date }) => date.getFullYear() === year,
     );
     setDivisionHolidays(relevantHolidays);
   }, [selectedDivision, year]);
@@ -71,12 +71,12 @@ const Form: NextPage<{
 
   const updateHolidayAllowance = (event: ChangeEvent): void => {
     setHolidayAllowance(
-      parseInt((event.target as HTMLSelectElement).value, 10)
+      parseInt((event.target as HTMLSelectElement).value, 10),
     );
   };
 
   return (
-    <div style={{padding: "0 2rem", margin: "0 auto", maxWidth: '960px'}}>
+    <div style={{ padding: "0 2rem", margin: "0 auto", maxWidth: "960px" }}>
       <Head>
         <title>Pro-rata holiday calculator</title>
         <meta
@@ -144,7 +144,7 @@ export async function getServerSideProps() {
   const years = new Set(
     holidays
       .flatMap(({ events }) => events)
-      .map(({ date }) => new Date(date).getFullYear())
+      .map(({ date }) => new Date(date).getFullYear()),
   );
   return {
     props: { holidays, years: Array.from(years) },
