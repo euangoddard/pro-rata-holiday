@@ -193,6 +193,13 @@ const HolidayVisualization: FC<HolidayVisualizationProps> = ({
       </ol>
 
       <h3>Visualization of your leave</h3>
+      {holidays.length ? (
+        ""
+      ) : (
+        <p>
+          <em>Please select at least one session to view your holiday</em>
+        </p>
+      )}
       <figure className={styles.days}>
         {holidays.map(({ type, label, id }) => (
           <div

@@ -83,41 +83,72 @@ const Form: NextPage<{
           name="description"
           content="Calculate how many days leave you can take"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta
+          property="og:image"
+          content="https://pro-rata-holiday.netlify.app/android-chrome-512x512.png"
+        />
       </Head>
 
-      <div>
-        <label>Division</label>
-        <select value={selectedDivision} onChange={updateDivision}>
+      <p>
+        <label htmlFor="division">Division</label>{" "}
+        <select
+          id="division"
+          value={selectedDivision}
+          onChange={updateDivision}
+        >
           {divisions.map(({ division, label }) => (
             <option key={division} value={division}>
               {label}
             </option>
           ))}
         </select>
-
-        <label>Year</label>
-        <select value={year} onChange={updateYear}>
+      </p>
+      <p>
+        <label htmlFor="year">Year</label>{" "}
+        <select id="year" value={year} onChange={updateYear}>
           {years.map((year) => (
             <option key={year} value={year}>
               {year}
             </option>
           ))}
         </select>
-      </div>
+      </p>
 
       <DayPicker onChange={(sessions: Sessions) => setSessions(sessions)} />
 
-      <label>
-        Holiday allowance (days)
-        <select value={holidayAllowance} onChange={updateHolidayAllowance}>
+      <p>
+        <label htmlFor="allowance">Holiday allowance </label>
+        <select
+          id="allowance"
+          value={holidayAllowance}
+          onChange={updateHolidayAllowance}
+        >
           {holidayAllowanceChoices.map((days) => (
             <option key={days} value={days}>
               {days}
             </option>
           ))}
-        </select>
-      </label>
+        </select>{" "}
+        (days)
+      </p>
       <HolidayVisualization
         holidayAllowanceDays={holidayAllowance}
         publicHolidays={divisionHolidays}
