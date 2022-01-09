@@ -1,0 +1,45 @@
+.publicHolidayText {
+  color: var(--color-public-holiday);
+}
+
+
+.highlight,
+.inLieu {
+  background: #c5e1a5;
+  padding: 16px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.inLieu {
+  background: #b0bec5;
+}
+
+.highlight p,
+.inLieu p {
+  margin: 0 0 16px;
+}
+
+.highlight h3,
+.inLieu h3 {
+  margin: 0;
+}
+
+.tightBottom {
+  margin-block-end: 12px;
+}
+
+.important {
+  color: #dd2c00;
+}
+
+.asLink {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-family: inherit;
+  font-size: inherit;
+  color: #2196f3;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, Fragment, useEffect, useState } from "react";
+import { ChangeEvent, FC, Fragment, useState } from "react";
 import styles from "./DayPicker.module.css";
 import { Session, Sessions } from "../lib/models";
 
@@ -22,10 +22,6 @@ const DayPicker: FC<{ onChange: (sessions: readonly Session[]) => void }> = ({
 }) => {
   const [sessions, setSessions] = useState<Sessions>([]);
 
-  useEffect(() => {
-    onChange(sessions);
-  }, [sessions]);
-
   const updateSessions =
     (session: Session) =>
     (event: ChangeEvent): void => {
@@ -37,11 +33,11 @@ const DayPicker: FC<{ onChange: (sessions: readonly Session[]) => void }> = ({
         sessionsUpdated = sessions.filter(({ key }) => key !== session.key);
       }
       setSessions(sessionsUpdated);
+      onChange(sessionsUpdated);
     };
 
   return (
     <div>
-      <label>Sessions</label>
       <div className={styles.choices}>
         <span>&nbsp;</span>
         {availableDays.map(({ day, label }) => (
@@ -53,14 +49,15 @@ const DayPicker: FC<{ onChange: (sessions: readonly Session[]) => void }> = ({
             <Fragment key={part}>
               <span>{part}</span>
               {availableDays.map(({ day, label }) => (
-                <input
-                  key={`${day}-${part}`}
-                  type="checkbox"
-                  onChange={updateSessions({
-                    key: `${label} ${part}`,
-                    day,
-                  })}
-                />
+                <span key={`${day}-${part}`}>
+                  <input
+                    type="checkbox"
+                    onChange={updateSessions({
+                      key: `${label} ${part}`,
+                      day,
+                    })}
+                  />
+                </span>
               ))}
             </Fragment>
           );

@@ -1,4 +1,12 @@
 .choices {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1px;
+  text-align: center;
+  background: #e6e6e6;
+}
+
+.choices > * {
+  background: var(--color-body-background);
+  padding: 4px;
 }

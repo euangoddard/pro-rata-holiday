@@ -3,7 +3,7 @@ import Head from "next/head";
 import type { Countries, Event, RawEvent, Sessions } from "../lib/models";
 import { ChangeEvent, useEffect, useState } from "react";
 import DayPicker from "../components/DayPicker";
-import HolidayVisualization from "../components/HolidayVisualization";
+import HolidayAllowance from "../components/HolidayAllowance";
 import { range } from "../lib/utils/array";
 
 const getDivisionLabel = (division: string): string => {
@@ -76,7 +76,7 @@ const Form: NextPage<{
   };
 
   return (
-    <div style={{ padding: "0 2rem", margin: "0 auto", maxWidth: "960px" }}>
+    <div style={{ padding: "0 1rem", margin: "0 auto", maxWidth: "960px" }}>
       <Head>
         <title>Pro-rata holiday calculator</title>
         <meta
@@ -106,9 +106,35 @@ const Form: NextPage<{
           content="https://pro-rata-holiday.netlify.app/android-chrome-512x512.png"
         />
       </Head>
+      <h1>Calculating my holiday allowance</h1>
+      <h2>
+        1. Standard annual leave allowance is 25 days. If yours differs, please
+        change this below.
+      </h2>
+      <p>
+        <label htmlFor="allowance">Yearly holiday allowance: </label>
+        <select
+          id="allowance"
+          value={holidayAllowance}
+          onChange={updateHolidayAllowance}
+        >
+          {holidayAllowanceChoices.map((days) => (
+            <option key={days} value={days}>
+              {days}
+            </option>
+          ))}
+        </select>{" "}
+        days
+      </p>
+      <hr />
+
+      <h2>
+        2. Tell us the following information so we can find the correct bank
+        holiday dates:
+      </h2>
 
       <p>
-        <label htmlFor="division">Division</label>{" "}
+        <label htmlFor="division">Your region:</label>{" "}
         <select
           id="division"
           value={selectedDivision}
@@ -122,7 +148,7 @@ const Form: NextPage<{
         </select>
       </p>
       <p>
-        <label htmlFor="year">Year</label>{" "}
+        <label htmlFor="year">The year you are calculating for:</label>{" "}
         <select id="year" value={year} onChange={updateYear}>
           {years.map((year) => (
             <option key={year} value={year}>
@@ -132,24 +158,27 @@ const Form: NextPage<{
         </select>
       </p>
 
+      <p
+        style={{
+          background: "#FFECB3",
+          padding: "8px 12px",
+          borderRadius: "4px",
+        }}
+      >
+        There are{" "}
+        <strong>{divisionHolidays.length} days of public holidays</strong> in{" "}
+        {getDivisionLabel(selectedDivision)} during <strong>{year}</strong>
+      </p>
+
+      <hr />
+
+      <h2>3. Please select the sessions you will be working in {year}:</h2>
+
       <DayPicker onChange={(sessions: Sessions) => setSessions(sessions)} />
 
-      <p>
-        <label htmlFor="allowance">Holiday allowance </label>
-        <select
-          id="allowance"
-          value={holidayAllowance}
-          onChange={updateHolidayAllowance}
-        >
-          {holidayAllowanceChoices.map((days) => (
-            <option key={days} value={days}>
-              {days}
-            </option>
-          ))}
-        </select>{" "}
-        (days)
-      </p>
-      <HolidayVisualization
+      <hr />
+
+      <HolidayAllowance
         holidayAllowanceDays={holidayAllowance}
         publicHolidays={divisionHolidays}
         sessions={sessions}

@@ -1,25 +1,47 @@
 :root {
-  --day-size: 24px;
-  --color-annual-leave: #43a047;
-  --color-partial-annual-leave: #c8e6c9;
-  --color-public-holiday-in-lieu: #512da8;
-  --color-partial-public-holiday-in-lieu: #d1c4e9;
   --color-public-holiday: #f57c00;
-  --color-partial-enforced-leave: #ffecb3;
+  --color-body-background: #efefef;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
+  background: var(--color-body-background);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-label {
-  font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 * {
   box-sizing: border-box;
+}
+
+select,
+input {
+  font-family: inherit;
+}
+
+h1,
+h2 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+hr {
+  margin: 16px 0;
+  border: none;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+select {
+  padding: 4px;
+  border-radius: 2px;
 }
